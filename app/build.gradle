@@ -1,29 +1,19 @@
 apply plugin: 'com.android.application'
 
-// Create a variable called keystorePropertiesFile, and initialize it to your
-// keystore.properties file, in the rootProject folder.
-//def keystorePropertiesFile = rootProject.file("keystore.properties")
-
-// Initialize a new Properties() object called keystoreProperties.
-//def keystoreProperties = new Properties()
-
-// Load your keystore.properties file into the keystoreProperties object.
-//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 
 android {
     compileSdkVersion 26
     buildToolsVersion '28.0.3'
     useLibrary 'org.apache.http.legacy'
 
-    /*signingConfigs {
-        config {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+    signingConfigs {
+        release {
+            storeFile file(System.env.ANDROID_KEYSTORE_PATH ?: signingConfigs.debug.storeFile)
+            storePassword System.env.ANDROID_KEYSTORE_PASSWORD ?: signingConfigs.debug.storePassword
+            keyAlias System.env.ANDROID_KEY_ALIAS ?: signingConfigs.debug.keyAlias
+            keyPassword System.env.ANDROID_KEY_PASSWORD ?: signingConfigs.debug.keyPassword
         }
-    }*/
+    }
 
 
     lintOptions {
@@ -43,9 +33,28 @@ android {
 
     buildTypes {
         release {
-            //signingConfig signingConfigs.config
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    lintOptions {
+        lintConfig = new File('config/lint.xml')
+
+        disable 'UnusedResources' // linter can't handle static imports, so just skip this test
+        disable 'GradleDependency' // TODO update to latest support-v4 lib and re-enable this rule
+        disable 'OldTargetApi'
+
+        warningsAsErrors true
+
+        xmlReport false
+
+        if(System.env.TRAVIS == 'true') {
+            abortOnError true
+            htmlReport false
+            textReport true
+            textOutput 'stdout'
         }
     }
 }
