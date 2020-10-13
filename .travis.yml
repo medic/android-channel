@@ -11,13 +11,10 @@ android:
 env:
 - GRADLE_OPTS="-XX:MaxPermSize=2048M"
 stages:
-  - name: test
   - name: deploy
     if: tag IS present
 jobs:
   include:
-    - stage: test
-      script: make test
   
     - stage: deploy
     - script:
@@ -42,3 +39,4 @@ deploy:
     tags: true
     repo: medic/rapidpro-android-channel
     branch: master
+
