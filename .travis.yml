@@ -11,13 +11,16 @@ android:
 env:
 - GRADLE_OPTS="-XX:MaxPermSize=2048M"
 stages:
+  - name: test
   - name: deploy
     if: tag IS present
 jobs:
   include:
+    - stage: test
+      script: make test
   
     - stage: deploy
-    - script:
+      script: ./gradlew assembleRelease
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -39,4 +42,3 @@ deploy:
     tags: true
     repo: medic/rapidpro-android-channel
     branch: master
-
