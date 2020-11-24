@@ -4,6 +4,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     buildToolsVersion '29.0.2'
+    lintOptions {
+        abortOnError true
+    }
+
 
     signingConfigs {
         release {
