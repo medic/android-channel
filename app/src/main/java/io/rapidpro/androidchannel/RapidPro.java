@@ -44,10 +44,6 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.provider.Telephony;
-/*//import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.content.FileProvider;*/
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
@@ -64,7 +60,6 @@ import io.rapidpro.androidchannel.data.DBCommandHelper;
 import io.rapidpro.androidchannel.payload.MTTextMessage;
 import io.rapidpro.androidchannel.payload.ResetCommand;
 
-//import static android.support.v4.app.ActivityCompat.startActivityForResult;
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 
