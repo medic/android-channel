@@ -9,3 +9,4 @@ do
     cp build/outputs/apk/release/packs-release.apk store/apks/pack$i.apk
     i=`expr $i + 1`
 done
+
