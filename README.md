@@ -14,7 +14,7 @@ The Android Channel project is split up into two projects, the main project and 
 
 ## Building
 
-Prior to building a new release, ensure our google-services.json that is pointed to the rapidpro-cht firebase is present in the project root directory.You can pull this file from 1Password Vault Shared: `Firebase - RapidPro CHT Android`
+Prior to building a new release, ensure our google-services.json that is pointed to the rapidpro-cht firebase is present in the project app module directory. You can pull this file from 1Password Vault Shared: `Firebase - RapidPro CHT Android`
 
 This is easy peasy. We use ant.
 ```
