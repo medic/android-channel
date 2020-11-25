@@ -18,6 +18,7 @@
 
 package io.rapidpro.androidchannel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.app.DownloadManager;
 import android.app.NotificationChannel;
@@ -43,10 +44,10 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.provider.Telephony;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.content.FileProvider;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.TaskStackBuilder;
+import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ import io.rapidpro.androidchannel.data.DBCommandHelper;
 import io.rapidpro.androidchannel.payload.MTTextMessage;
 import io.rapidpro.androidchannel.payload.ResetCommand;
 
-import static android.support.v4.app.ActivityCompat.startActivityForResult;
+import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 
 public class RapidPro extends Application {
@@ -100,6 +101,7 @@ public class RapidPro extends Application {
 
     private HashMap<String, ArrayList<Long>> m_sendReports = new HashMap<String, ArrayList<Long>>();
 
+    @SuppressLint("ResourceType")
     @Override
     public void onCreate() {
         super.onCreate();

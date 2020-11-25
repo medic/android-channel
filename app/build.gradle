@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '29.0.2'
     useLibrary 'org.apache.http.legacy'
 
     signingConfigs {
@@ -62,10 +62,8 @@ android {
 dependencies {
     implementation files('libs/json_simple-1.1.jar')
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
-    implementation 'com.android.support:support-core-utils:26+'
     implementation 'com.google.firebase:firebase-core:16.0.5'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
-    implementation 'com.android.support:support-v4:26+'
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -24,13 +24,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.ListFragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.SimpleCursorAdapter;
+import androidx.loader.content.Loader;
+import androidx.loader.content.CursorLoader;
 import android.view.View;
 import android.widget.*;
+
+import androidx.fragment.app.ListFragment;
+import androidx.loader.app.LoaderManager;
+
 import io.rapidpro.androidchannel.contentprovider.DBCommandContentProvider;
 import io.rapidpro.androidchannel.data.DBCommandHelper;
 import io.rapidpro.androidchannel.payload.MOTextMessage;
@@ -40,7 +41,7 @@ import io.rapidpro.androidchannel.ui.IconTextView;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class MessageListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
+public class MessageListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private SimpleCursorAdapter m_adapter;
     private MessageObserver m_observer;

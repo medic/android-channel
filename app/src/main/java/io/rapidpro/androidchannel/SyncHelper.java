@@ -40,7 +40,7 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
 public class SyncHelper {
 
     // how many seconds between polling
-    public static final long POLLING_INTERVAL = 600;
+    public static final long POLLING_INTERVAL = 180;
 
     // how long we should go without a new message before going forward, prevents
     // us from contacting the server too often during periods of lots of activity

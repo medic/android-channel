@@ -30,16 +30,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.MotionEventCompat;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentManager;
+//import android.support.v4.app.FragmentTransaction;
+//import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.view.MotionEventCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import io.rapidpro.androidchannel.ui.UpdatingTextView;
 import io.rapidpro.androidchannel.util.DateUtil;
@@ -355,7 +360,7 @@ public class HomeActivity extends BaseActivity implements Intents {
         showNeedPermission();
     }
 
-    private void showFragment(Fragment fragment, String tag,  Bundle args, boolean clearBackStack) {
+    private void showFragment(Fragment fragment, String tag, Bundle args, boolean clearBackStack) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
 
